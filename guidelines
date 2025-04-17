@@ -1,0 +1,28 @@
+
+1. Submit a PDF Document: Start by submitting a PDF document, such as `handbook.pdf`, that contains the knowledge base. 
+2. Document Processing: The system will process the document, extract text, and create embeddings to guarantee efficient search. 
+3. Ask a Question: Type your question in the space provided and click "Ask." 
+4. Get an Answer: The system extracts relevant information from the document and generates an answer using a language model that has already been trained.
+
+
+
+An explanation of the models and datasets used 
+
+Dataset: The provided PDF document serves as the knowledge base. `handbook.pdf` is used in this case. Embedding Model: [all-MiniLM-L6-v2] (https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) is used to vector embed text chunks. -Language Model: Google and Flan-T5-large Depending on the text that was retrieved, answers are generated using https://huggingface.co/google/flan-t5-large.
+
+
+Architecture
+
+1. Text Extraction: The uploaded PDF's text can be extracted using PyPDF. 
+2. Text Splitting: Split the recorded text into digestible chunks to make processing easier. 3.Embedding Creation: Make vector embeddings for each text segment using the embedding model. 
+4. Vector Search: Store embeddings in Qdrant and do a similarity search to identify relevant chunks. 
+5. Answer Generation: Use the Hugging Face model to generate brief responses based on the incoming chunks.
+
+---
+
+Detailed Methodology
+
+1. Step1: Extract text from the uploaded PDF using PyPDF. 
+Step 2: Split the text into chunks of 500 characters each, with a 50-character overlap. 
+Step 3: Make embeddings for each chunk using the all-MiniLM-L6-v2 model. 
+Step 4: Store the embeddings in a vector database designed for similarity searches called Qdrant. 5. Step 5: Encode a query into a vector and do a similarity search in Qdrant to identify the top 5 most relevant chunks. 6. Step 6: Compile the gathered information and feed it into the google/flan-t5-large model to provide a concise response.
