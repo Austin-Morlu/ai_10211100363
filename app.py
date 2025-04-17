@@ -24,15 +24,18 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 
 st.set_page_config(page_title="ML & AI Explorer", layout="wide")
+
+# Sidebar content
 st.sidebar.title("Navigation")
+st.sidebar.write("Created by: [Your Name]")  # Replace [Your Name] with your actual name
+st.sidebar.write("Course: [Course Name]")    # Replace [Course Name] with your course name
+
 app_mode = st.sidebar.radio("Choose a task:", [
     "Regression",
     "Clustering",
     "Neural Network",
     "Large Language Model (LLM)"
 ])
-
-st.title("Machine Learning & AI Exploration App")
 
 if app_mode == "Regression":
     st.header("Regression Task")
