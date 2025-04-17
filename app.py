@@ -27,8 +27,8 @@ st.set_page_config(page_title="ML & AI Explorer", layout="wide")
 
 # Sidebar content
 st.sidebar.title("Navigation")
-st.sidebar.write("Created by: [Your Name]")  # Replace [Your Name] with your actual name
-st.sidebar.write("Course: [Course Name]")    # Replace [Course Name] with your course name
+st.sidebar.write("Austin Morlu]")  
+st.sidebar.write("10211100369")   
 
 app_mode = st.sidebar.radio("Choose a task:", [
     "Regression",
